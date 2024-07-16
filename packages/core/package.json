@@ -1,0 +1,43 @@
+{
+  "name": "@suggester/core",
+  "version": "0.0.1",
+  "private": false,
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hiroki0525/suggester.git",
+    "directory": "packages/core"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "module": "dist/index.js",
+  "exports": {
+    ".": {
+      "types": {
+        "require": "./dist/index.d.cts",
+        "default": "./dist/index.d.ts"
+      },
+      "default": {
+        "require": "./dist/index.cjs",
+        "default": "./dist/index.js"
+      }
+    }
+  },
+  "scripts": {
+    "build": "tsup --config ../../tsup.config.ts",
+    "dev": "tsx ./src/index.ts",
+    "test": "vitest run"
+  },
+  "keywords": [],
+  "author": "Hiroki Miyaji",
+  "license": "MIT",
+  "dependencies": {
+  }
+}

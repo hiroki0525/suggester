@@ -1,0 +1,64 @@
+{
+  "name": "@suggester/monorepo",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Good suggest for you!!",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hiroki0525/suggester.git"
+  },
+  "scripts": {
+    "build": "turbo build",
+    "prepare": "husky install",
+    "test": "turbo test"
+  },
+  "keywords": [
+    "javascript",
+    "typescript",
+    "chatgpt",
+    "openai",
+    "gpt-4",
+    "gpt-3"
+  ],
+  "author": "Hiroki Miyaji",
+  "license": "MIT",
+  "devDependencies": {
+    "@changesets/changelog-github": "^0.5.0",
+    "@changesets/cli": "^2.27.7",
+    "@types/node": "^20.14.10",
+    "@typescript-eslint/eslint-plugin": "7.16.1",
+    "@typescript-eslint/parser": "7.16.1",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-import": "2.29.1",
+    "eslint-plugin-unused-imports": "^3.2.0",
+    "eslint-plugin-vitest": "^0.5.4",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.7",
+    "prettier": "3.3.3",
+    "tsup": "^8.1.0",
+    "tsx": "^4.16.2",
+    "turbo": "^2.0.6",
+    "typescript": "5.5.3",
+    "vitest": "^2.0.3"
+  },
+  "packageManager": "pnpm@8.14.2",
+  "engines": {
+    "node": ">=18.18.1",
+    "pnpm": "8.14.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,json,yml,yaml,css,scss,ts,tsx,md}": [
+      "prettier --write"
+    ]
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}
