@@ -1,20 +1,13 @@
-import { pipeline, TextGenerationOutput } from "@xenova/transformers";
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-expect-error
-import { forceRunIdleTask, setIdleTask } from "idle-task";
+import { Remote, wrap } from "comlink";
+import { predictTextsOnWorker } from "./worker";
 
-const taskKey = setIdleTask(() => pipeline("text-generation"));
+let func: Remote<(text: string) => Promise<string[]>>;
 
 export async function predictTexts(text: string) {
-  if (!text || text.trim().length === 0) {
-    return [];
+  if (!func) {
+    func = wrap<typeof predictTextsOnWorker>(
+      new Worker(new URL("./worker", import.meta.url)),
+    );
   }
-  const pipe = await forceRunIdleTask(taskKey);
-  const results = await pipe(text, {
-    return_full_text: true,
-    temperature: 0,
-  });
-  return (results as TextGenerationOutput).map(
-    ({ generated_text }) => generated_text,
-  ) as string[];
+  return func(text);
 }

@@ -1,13 +1,16 @@
 "use client";
 
 import { ChangeEventHandler, startTransition, useState } from "react";
+import { forceRunIdleTask, setIdleTask } from "idle-task";
+
+const taskKey = setIdleTask(() => import("@suggester/core"));
 
 export default function Input() {
   const [predictValue, setPredictValue] = useState("");
 
   const changeHandler: ChangeEventHandler<HTMLInputElement> = async (e) => {
     const targetValue = e.target.value;
-    const { predictTexts } = await import("@suggester/core");
+    const { predictTexts } = await forceRunIdleTask(taskKey);
     const res = await predictTexts(targetValue);
     startTransition(() => setPredictValue(res[0]));
   };

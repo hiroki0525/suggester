@@ -59,7 +59,8 @@
     ]
   },
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "examples/*"
   ],
   "dependencies": {
     "idle-task": "^4.3.0"
