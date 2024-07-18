@@ -2,7 +2,7 @@
   "$schema": "https://turbo.build/schema.json",
   "tasks": {
     "build": {
-      "inputs": ["!examples/**", "packages/**"],
+      "inputs": ["packages/**"],
       "outputs": ["dist/**"]
     },
     "test": {
