@@ -7,6 +7,6 @@ export default defineConfig({
   splitting: false,
   format: ["esm", "cjs"],
   entry: ["src", "!src/**/*.test.*", "!src/**__test__/**"],
-  platform: "node",
+  platform: "browser",
   external: ["idle-task"],
 });

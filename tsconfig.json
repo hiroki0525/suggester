@@ -2,6 +2,7 @@
   "compilerOptions": {
     "lib": ["dom", "dom.iterable", "esnext", "webworker"],
     "outDir": "./dist",
+    "skipLibCheck": true,
     "sourceMap": true,
     "target": "es2022",
     "module": "esnext",
@@ -14,8 +15,7 @@
     "baseUrl": ".",
     "paths": {
       "@suggester/*": ["./packages/*/src"]
-    },
-    "types": ["node"]
+    }
   },
   "include": ["src/**/*"],
   "exclude": [
