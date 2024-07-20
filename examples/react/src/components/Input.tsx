@@ -1,21 +1,35 @@
 "use client";
 
-import { ChangeEventHandler, startTransition, useState } from "react";
-import { predictTexts } from "@suggester/core";
+import { ChangeEventHandler, startTransition, useId, useState } from "react";
+import { forceRunIdleTask, setIdleTask } from "idle-task";
 
-// const taskKey = setIdleTask(() => import("@suggester/core"));
+const taskKey = setIdleTask(() => import("@suggester/core"));
 
 export default function Input() {
-  const [predictValue, setPredictValue] = useState("");
+  const listId = useId();
+  const [predictValues, setPredictValues] = useState([]);
 
   const changeHandler: ChangeEventHandler<HTMLInputElement> = async (e) => {
     const targetValue = e.target.value;
-    // const { predictTexts } = await forceRunIdleTask(taskKey);
+    const { predictTexts } = await forceRunIdleTask(taskKey);
     const res = await predictTexts(targetValue);
-    startTransition(() => setPredictValue(res[0]));
+    console.log(res);
+    startTransition(() => setPredictValues(res));
   };
 
   return (
-    <input type="text" onChange={changeHandler} placeholder={predictValue} />
+    <>
+      <input
+        className="w-96 p-4 rounded-md"
+        type="search"
+        onChange={changeHandler}
+        list={listId}
+      />
+      <datalist id={listId}>
+        {predictValues.map((value) => (
+          <option key={value} value={value} />
+        ))}
+      </datalist>
+    </>
   );
 }

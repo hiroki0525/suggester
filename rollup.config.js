@@ -7,7 +7,7 @@ const productionConfigs = outputFormats.map((format) => ({
   input: "src/index.ts",
   output: [
     {
-      file: `dist/index.${format === "es" ? "js" : "cjs"}`,
+      file: `index.${format === "es" ? "js" : "cjs"}`,
       format,
       compact: true,
     },
