@@ -31,6 +31,7 @@
     }
   },
   "scripts": {
+    "prebuild": "rimraf dist",
     "build": "rollup -c ../../rollup.config.js",
     "dev": "tsx src/index.ts",
     "test": "vitest run"
