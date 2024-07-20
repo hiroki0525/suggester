@@ -31,7 +31,7 @@
     }
   },
   "scripts": {
-    "build": "tsup --config ../../tsup.config.ts",
+    "build": "rollup -c ../../rollup.config.js",
     "dev": "tsx src/index.ts",
     "test": "vitest run"
   },

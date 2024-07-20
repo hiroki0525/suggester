@@ -7,6 +7,7 @@
     "type": "git",
     "url": "https://github.com/hiroki0525/suggester.git"
   },
+  "type": "module",
   "scripts": {
     "build": "turbo build",
     "prepare": "husky install",
@@ -25,7 +26,7 @@
   "devDependencies": {
     "@changesets/changelog-github": "^0.5.0",
     "@changesets/cli": "^2.27.7",
-    "@swc/core": "^1.6.13",
+    "@swc/core": "^1.7.0",
     "@types/node": "^20.14.11",
     "@typescript-eslint/eslint-plugin": "7.16.1",
     "@typescript-eslint/parser": "7.16.1",
@@ -35,12 +36,11 @@
     "eslint-plugin-import": "2.29.1",
     "eslint-plugin-unused-imports": "^3.2.0",
     "eslint-plugin-vitest": "^0.5.4",
-    "husky": "^9.0.11",
+    "husky": "^9.1.1",
     "lint-staged": "^15.2.7",
     "prettier": "3.3.3",
-    "tsup": "^8.1.1",
     "tsx": "^4.16.2",
-    "turbo": "^2.0.7",
+    "turbo": "^2.0.9",
     "typescript": "5.5.3",
     "vitest": "^2.0.3"
   },
@@ -63,6 +63,9 @@
     "examples/*"
   ],
   "dependencies": {
-    "idle-task": "^4.3.0"
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "idle-task": "^4.3.0",
+    "rollup": "^4.18.1"
   }
 }
