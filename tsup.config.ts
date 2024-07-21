@@ -8,5 +8,5 @@ export default defineConfig({
   format: ["esm", "cjs"],
   entry: ["src", "!src/**/*.test.*", "!src/**__test__/**"],
   platform: "browser",
-  external: ["idle-task"],
+  external: ["idle-task", "comlink"],
 });

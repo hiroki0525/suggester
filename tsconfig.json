@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "lib": ["dom", "dom.iterable", "esnext", "webworker"],
-    "outDir": "./dist",
+    "outDir": ".",
     "skipLibCheck": true,
     "sourceMap": true,
     "target": "es2022",
@@ -9,7 +9,7 @@
     "moduleResolution": "node",
     "strict": true,
     "declaration": true,
-    "declarationDir": "./dist",
+    "declarationDir": ".",
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "baseUrl": ".",
